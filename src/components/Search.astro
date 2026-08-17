@@ -20,11 +20,11 @@ const { uid = '' } = Astro.props;
   <!-- Trigger Button (PC) -->
   <button 
     id={`search-trigger-pc-${uid}`} 
-    class="hidden md:flex items-center gap-3 px-3 py-1.5 bg-muted/20 hover:bg-muted/40 border border-dashed border-muted-foreground/30 rounded-lg transition-all cursor-pointer group"
+    class="hidden md:flex items-center gap-3 px-3 py-1.5 bg-muted/60 hover:bg-accent border border-border rounded-lg transition-all cursor-pointer group focus-visible:outline-2 focus-visible:outline-ring"
   >
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground group-hover:text-brand transition-colors"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-    <span class="text-sm text-muted-foreground font-medium">Search</span>
-    <kbd class="hidden lg:inline-flex h-5 items-center gap-1 rounded border border-border bg-background px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground group-hover:text-primary transition-colors"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+    <span class="text-xs text-muted-foreground font-medium">Search</span>
+    <kbd class="hidden lg:inline-flex h-5 items-center gap-1 rounded border border-border bg-background px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
       <span class="text-xs">⌘</span>K
     </kbd>
   </button>
@@ -32,42 +32,42 @@ const { uid = '' } = Astro.props;
   <!-- Trigger Button (Mobile) -->
   <button 
     id={`search-trigger-mobile-${uid}`} 
-    class="flex md:hidden p-2 text-muted-foreground hover:text-brand transition-colors cursor-pointer"
+    class="flex md:hidden p-2 text-muted-foreground hover:text-primary transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-ring rounded-md"
   >
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
   </button>
 
   <!-- Native Dialog Modal -->
   <dialog 
     id={`search-dialog-${uid}`} 
-    class="p-0 m-0 w-full h-full max-w-full max-h-full shadow-2xl open:flex flex-col backdrop:backdrop-blur-xl backdrop:bg-black/40 border border-muted/50 sm:w-[95%] sm:max-w-2xl sm:h-max sm:min-h-[300px] sm:max-h-[calc(100%_-_8rem)] sm:rounded-2xl sm:mt-24 sm:mx-auto bg-background/95 text-foreground overflow-hidden animate-in zoom-in-95 fade-in duration-300"
+    class="p-0 m-0 w-full h-full max-w-full max-h-full shadow-2xl open:flex flex-col backdrop:backdrop-blur-xl backdrop:bg-black/50 border border-border sm:w-[95%] sm:max-w-2xl sm:h-max sm:min-h-[300px] sm:max-h-[calc(100%_-_8rem)] sm:rounded-2xl sm:mt-24 sm:mx-auto bg-background/95 text-foreground overflow-hidden"
   >
     <div class="relative overflow-hidden flex flex-col grow">
       <!-- Search Input Area -->
-      <div class="relative flex items-center p-4 border-b border-muted/20">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="absolute left-7 text-muted-foreground"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+      <div class="relative flex items-center p-4 border-b border-border">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-7 text-muted-foreground"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
         <input 
           id={`search-input-${uid}`}
           type="text" 
-          placeholder="Search..." 
-          class="w-full bg-transparent border-none outline-none pl-12 pr-4 py-2 text-lg text-foreground placeholder:text-muted-foreground/50"
+          placeholder="Search articles..." 
+          class="w-full bg-transparent border-none outline-none pl-12 pr-4 py-2 text-base text-foreground placeholder:text-muted-foreground/60"
           autocomplete="off"
         />
-        <button id={`search-close-mobile-${uid}`} class="md:hidden text-sm font-medium border border-muted/50 rounded-lg px-3 py-1 bg-muted/20 active:bg-muted/40 transition-colors">Cancel</button>
+        <button id={`search-close-mobile-${uid}`} class="md:hidden text-xs font-semibold border border-border rounded-lg px-3 py-1.5 bg-muted text-foreground active:scale-95 transition-all">Cancel</button>
       </div>
 
       <!-- Results Area -->
-      <div id={`search-results-${uid}`} class="flex-1 max-h-[60vh] overflow-y-auto p-4 space-y-2 empty:hidden">
+      <div id={`search-results-${uid}`} class="flex-1 max-h-[60vh] overflow-y-auto p-3 space-y-1.5 empty:hidden">
         <!-- Results injected here -->
       </div>
       
       <!-- Footer -->
-      <div class="hidden sm:flex px-4 py-3 bg-muted/5 border-t border-muted/20 items-center justify-between text-[11px] text-muted-foreground/60 font-medium uppercase tracking-wider">
+      <div class="hidden sm:flex px-4 py-3 bg-muted/40 border-t border-border items-center justify-between text-[11px] text-muted-foreground font-medium uppercase tracking-wider">
         <div class="flex items-center gap-4">
-           <span class="flex items-center gap-1"><kbd class="bg-muted/20 px-1 rounded">Enter</kbd> to select</span>
-           <span class="flex items-center gap-1"><kbd class="bg-muted/20 px-1 rounded">↑↓</kbd> to navigate</span>
+           <span class="flex items-center gap-1"><kbd class="bg-muted px-1.5 py-0.5 rounded border border-border font-mono text-[10px]">Enter</kbd> to select</span>
+           <span class="flex items-center gap-1"><kbd class="bg-muted px-1.5 py-0.5 rounded border border-border font-mono text-[10px]">↑↓</kbd> to navigate</span>
         </div>
-        <span class="flex items-center gap-1"><kbd class="bg-muted/20 px-1 rounded text-xs">Esc</kbd> to close</span>
+        <span class="flex items-center gap-1"><kbd class="bg-muted px-1.5 py-0.5 rounded border border-border font-mono text-[10px]">Esc</kbd> to close</span>
       </div>
     </div>
   </dialog>
@@ -85,7 +85,7 @@ const { uid = '' } = Astro.props;
     const resultsDir = document.getElementById(`search-results-${uid}`);
     const closeMobile = document.getElementById(`search-close-mobile-${uid}`);
 
-    if (!dialog) return; // Guard clause in case element is missing
+    if (!dialog) return;
 
     function openSearch() {
       dialog.showModal();
@@ -111,37 +111,25 @@ const { uid = '' } = Astro.props;
     triggerMobile?.addEventListener('click', openSearch);
     closeMobile?.addEventListener('click', closeSearch);
 
-    // Close on click outside (backdrop)
     dialog?.addEventListener('click', (e) => {
       if (e.target === dialog) {
         closeSearch();
       }
     });
 
-    // Keyboard support - GLOBAL listening but only opens ONE dialog? 
-    // If we have two instances, both listen. Both open?
-    // We should probably only let one handle the keyboard shortcut or default to the desktop one.
-    // For now, let's allow both to try, or check visibility.
     const handleKeyDown = (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        // Only open if this instance is visible or "active"
-        // Since we can't easily tell which one is "correct", let's strictly rely on button clicks for now.
-        // OR: Only the desktop one (uid='desktop') listens?
         if (uid === 'desktop' || (!uid && triggerPc && getComputedStyle(triggerPc).display !== 'none')) {
-             openSearch();
+          openSearch();
         }
       }
     };
     
-    // Only attach global keydown if specific condition met to avoid duplicates?
-    // Actually, duplicate listeners opening duplicate dialogs is bad.
-    // Let's restrict keyboard shortcut to 'desktop' uid.
     if (uid === 'desktop') {
-        window.addEventListener('keydown', handleKeyDown);
+      window.addEventListener('keydown', handleKeyDown);
     }
 
-    // Search logic
     input?.addEventListener('input', (e) => {
       if (!fuse) return;
       const value = e.target.value;
@@ -153,14 +141,14 @@ const { uid = '' } = Astro.props;
       const results = fuse.search(value);
       
       if (results.length === 0) {
-        resultsDir.innerHTML = `<div class="p-8 text-center text-muted-foreground italic font-medium">No results found for "${value}"</div>`;
+        resultsDir.innerHTML = `<div class="p-8 text-center text-muted-foreground italic font-medium text-sm">No results found for "${value}"</div>`;
         return;
       }
 
       resultsDir.innerHTML = results.slice(0, 8).map(({ item }) => `
-        <a href="${item.url}" class="flex flex-col gap-1 p-4 rounded-xl hover:bg-muted/20 transition-all group border border-transparent hover:border-muted/30 active:scale-[0.99]">
-          <h4 class="font-bold text-foreground group-hover:text-brand transition-colors">${item.title}</h4>
-          <p class="text-sm text-muted-foreground/60 line-clamp-1">${item.description}</p>
+        <a href="${item.url}" class="flex flex-col gap-1 p-3.5 rounded-xl hover:bg-accent transition-all group border border-transparent hover:border-border active:scale-[0.99]">
+          <h4 class="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">${item.title}</h4>
+          <p class="text-xs text-muted-foreground line-clamp-1">${item.description}</p>
         </a>
       `).join('');
     });
@@ -168,7 +156,6 @@ const { uid = '' } = Astro.props;
 </script>
 
 <style>
-  /* Fix scrollbar issues */
   dialog[open] {
     display: flex;
   }
@@ -177,20 +164,18 @@ const { uid = '' } = Astro.props;
     width: 6px;
   }
   #search-results::-webkit-scrollbar-thumb {
-    background: var(--muted);
+    background: var(--border);
     border-radius: 10px;
-    opacity: 0.5;
   }
   #search-results::-webkit-scrollbar-track {
     background: transparent;
   }
 
-  /* Fade-in animation for backdrop */
   #search-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(12px);
     opacity: 0;
-    transition: opacity 300ms ease;
+    transition: opacity 250ms ease;
   }
   
   #search-dialog[open]::backdrop {

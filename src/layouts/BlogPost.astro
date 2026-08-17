@@ -31,65 +31,67 @@ const id = post ? post.id : 'page';
 	</head>
 
 	<body class="bg-background text-foreground antialiased transition-colors duration-300">
-		<div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand z-[60] transition-all duration-150 w-0 shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+		<div id="progress-bar" class="fixed top-0 left-0 h-0.5 bg-primary z-[60] transition-all duration-150 w-0"></div>
 		<Header />
 		
-		<main class="max-w-7xl mx-auto px-6 py-12 md:py-24 animate-in fade-in duration-700 relative">
+		<main class="max-w-7xl mx-auto px-6 py-10 md:py-16 animate-in fade-in duration-500 relative">
 			<div class="flex flex-col items-center">
 				<article class="w-full max-w-3xl">
 					<nav class="mb-8">
-						<a href="/blog" class="group inline-flex items-center gap-2 text-muted-foreground hover:text-brand transition-all font-semibold">
+						<a href="/blog" class="group inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-all font-medium">
 							<span class="transition-transform group-hover:-translate-x-1">←</span>
-							<span>Back</span>
+							<span>Back to Blog</span>
 						</a>
 					</nav>
-					<header class="mb-12 text-center md:text-left relative">
-						<div class="flex items-center gap-2 text-muted-foreground font-mono text-sm mb-4 justify-center md:justify-start">
+					<header class="mb-10 text-center md:text-left relative">
+						<div class="flex items-center gap-2 text-muted-foreground font-mono text-xs mb-3 justify-center md:justify-start">
 							<FormattedDate date={pubDate} />
 							{
 								updatedDate && (
-									<span class="italic text-brand/60">
+									<span class="italic text-muted-foreground/80">
 										(Updated on <FormattedDate date={updatedDate} />)
 									</span>
 								)
 							}
 						</div>
-						<h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight">
+						<h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-balance mb-4 leading-snug">
 							{title}
 						</h1>
-						<p class="text-xl text-muted-foreground leading-relaxed">
-							{description}
-						</p>
+						{description && (
+							<p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+								{description}
+							</p>
+						)}
 					</header>
 
 					{heroImage && (
-						<div class="rounded-3xl overflow-hidden shadow-2xl mb-16 aspect-video shrink-0 bg-muted">
+						<div class="rounded-2xl overflow-hidden border border-border shadow-xs mb-12 aspect-video shrink-0 bg-muted">
 							<Image width={1020} height={510} src={heroImage} alt="" class="w-full h-full object-cover" />
 						</div>
 					)}
 
 					<TableOfContents headings={headings} />
 					
-					<div class="prose prose-lg dark:prose-invert prose-indigo max-w-none">
+					<div class="prose prose-lg dark:prose-invert max-w-none">
 						<slot />
 					</div>
 
-					<div class="mt-16 flex flex-col gap-10 pt-10 border-t border-muted/30">
+					<div class="mt-14 flex flex-col gap-8 pt-8 border-t border-border">
 						{author && (
-							<div class="flex flex-col items-end self-end gap-1.5">
-								<span class="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/40 italic">Written By</span>
-								<div class="flex items-center gap-3">
-									<div class="w-12 h-[2px] bg-brand/40"></div>
-									<span class="text-xl font-black tracking-tight text-foreground/90">{author}</span>
+							<div class="flex flex-col items-end self-end gap-1">
+								<span class="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">Written By</span>
+								<div class="flex items-center gap-2">
+									<div class="w-8 h-[1px] bg-border"></div>
+									<span class="text-base font-semibold tracking-tight text-foreground">{author}</span>
 								</div>
 							</div>
 						)}
 						{tags && tags.length > 0 && (
-							<div class="flex flex-wrap gap-2.5">
+							<div class="flex flex-wrap gap-2">
 								{tags.map((tag) => (
 									<a 
 									  href={`/tags/${tag}`} 
-									  class="text-xs font-bold px-3.5 py-2 bg-muted/30 hover:bg-brand/10 hover:text-brand rounded-xl text-muted-foreground/80 transition-all border border-transparent hover:border-brand/20 tracking-wide uppercase"
+									  class="text-xs font-medium px-3 py-1.5 bg-muted/60 hover:bg-accent hover:text-foreground rounded-lg text-muted-foreground transition-all border border-border/50"
 									>
 									  #{tag}
 									</a>

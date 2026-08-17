@@ -1,0 +1,25 @@
+---
+interface Props {
+  class?: string;
+  hoverable?: boolean;
+  bento?: boolean;
+  [key: string]: any;
+}
+
+const {
+  class: className = '',
+  hoverable = true,
+  bento = false,
+  ...rest
+} = Astro.props;
+
+const baseStyles = "rounded-xl border border-border bg-card text-card-foreground p-6 shadow-xs transition-all duration-200";
+const hoverStyles = hoverable ? "hover:border-border/80 hover:shadow-md hover:-translate-y-0.5" : "";
+const bentoStyles = bento ? "flex flex-col justify-between overflow-hidden relative" : "";
+
+const classes = [baseStyles, hoverStyles, bentoStyles, className].join(' ');
+---
+
+<div class={classes} {...rest}>
+  <slot />
+</div>

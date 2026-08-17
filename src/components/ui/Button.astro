@@ -1,0 +1,51 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'destructive';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  disabled?: boolean;
+  [key: string]: any;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  class: className = '',
+  disabled = false,
+  ...rest
+} = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none active:scale-[0.98] select-none cursor-pointer";
+
+const variants = {
+  primary: "bg-primary text-primary-foreground hover:opacity-90 shadow-xs",
+  secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+  ghost: "text-foreground hover:bg-accent hover:text-accent-foreground",
+  outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground shadow-xs",
+  destructive: "bg-destructive text-destructive-foreground hover:opacity-90 shadow-xs"
+};
+
+const sizes = {
+  sm: "text-xs px-3 py-1.5 gap-1.5",
+  md: "text-sm px-4 py-2 gap-2",
+  lg: "text-base px-5 py-2.5 gap-2.5"
+};
+
+const classes = [baseStyles, variants[variant], sizes[size], className].join(' ');
+---
+
+{
+  href ? (
+    <a href={disabled ? undefined : href} class={classes} {...rest}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes} disabled={disabled} {...rest}>
+      <slot />
+    </button>
+  )
+}

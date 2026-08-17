@@ -4,18 +4,20 @@ import Search from './Search.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<header class="sticky top-0 z-50 glass border-b border-muted/20">
-	<nav class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between gap-4">
+<header class="sticky top-0 z-50 glass border-b border-border/60 backdrop-blur-xl">
+	<nav class="max-w-6xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between gap-4">
 		<div class="flex items-center gap-4 md:gap-8 flex-1 min-w-0">
-			<h2 class="text-lg md:text-xl font-bold tracking-tighter shrink-0 truncate" transition:name="site-title">
-				<a href="/" class="hover:text-brand transition-colors text-foreground">{SITE_TITLE}</a>
+			<h2 class="text-lg md:text-xl font-bold tracking-tight shrink-0 truncate" transition:name="site-title">
+				<a href="/" class="hover:text-primary transition-colors text-foreground focus-visible:ring-2 focus-visible:ring-ring rounded-md px-1 py-0.5">
+					{SITE_TITLE}
+				</a>
 			</h2>
 			<div class="hidden sm:block flex-1 max-w-xs">
 				<Search uid="desktop" />
 			</div>
 		</div>
 
-		<div class="hidden md:flex items-center gap-6 font-medium shrink-0">
+		<div class="hidden md:flex items-center gap-6 font-medium shrink-0 text-sm">
 			<HeaderLink href="/">HOME</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
@@ -27,36 +29,40 @@ import { SITE_TITLE } from '../consts';
 			<div class="sm:hidden">
 				<Search uid="mobile" />
 			</div>
-			<button id="mobile-menu-toggle" class="p-2 rounded-xl bg-muted/20 border border-muted/50 text-foreground" aria-label="Toggle Menu">
-				<svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-				<svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+			<button 
+				id="mobile-menu-toggle" 
+				class="p-2 rounded-lg bg-muted border border-border text-foreground hover:bg-accent transition-colors focus-visible:outline-2 focus-visible:outline-ring" 
+				aria-label="Toggle Menu"
+			>
+				<svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+				<svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 			</button>
 		</div>
 	</nav>
 </header>
 
 <!-- Mobile Menu Drawer -->
-<div id="mobile-menu" class="fixed inset-x-0 top-20 bottom-0 bg-background/95 backdrop-blur-2xl z-40 hidden md:hidden flex flex-col p-6 gap-6 animate-in fade-in slide-in-from-top-4 duration-300">
-	<div class="grid gap-4">
-		<a href="/" class="text-2xl font-bold p-4 rounded-2xl bg-muted/20 border border-muted/50 hover:bg-brand/10 hover:border-brand/40 transition-all flex items-center justify-between group">
+<div id="mobile-menu" class="fixed inset-x-0 top-16 bottom-0 bg-background/95 backdrop-blur-2xl z-40 hidden md:hidden flex flex-col p-6 gap-6 animate-in fade-in slide-in-from-top-4 duration-300">
+	<div class="grid gap-3">
+		<a href="/" class="text-xl font-bold p-4 rounded-xl bg-card border border-border hover:bg-accent hover:border-primary/40 transition-all flex items-center justify-between group">
 			HOME
-			<span class="text-brand transition-transform group-hover:translate-x-2">→</span>
+			<span class="text-primary transition-transform group-hover:translate-x-1.5">→</span>
 		</a>
-		<a href="/about" class="text-2xl font-bold p-4 rounded-2xl bg-muted/20 border border-muted/50 hover:bg-brand/10 hover:border-brand/40 transition-all flex items-center justify-between group">
+		<a href="/about" class="text-xl font-bold p-4 rounded-xl bg-card border border-border hover:bg-accent hover:border-primary/40 transition-all flex items-center justify-between group">
 			About
-			<span class="text-brand transition-transform group-hover:translate-x-2">→</span>
+			<span class="text-primary transition-transform group-hover:translate-x-1.5">→</span>
 		</a>
-		<a href="/blog" class="text-2xl font-bold p-4 rounded-2xl bg-muted/20 border border-muted/50 hover:bg-brand/10 hover:border-brand/40 transition-all flex items-center justify-between group">
+		<a href="/blog" class="text-xl font-bold p-4 rounded-xl bg-card border border-border hover:bg-accent hover:border-primary/40 transition-all flex items-center justify-between group">
 			Blog
-			<span class="text-brand transition-transform group-hover:translate-x-2">→</span>
+			<span class="text-primary transition-transform group-hover:translate-x-1.5">→</span>
 		</a>
-		<a href="/projects" class="text-2xl font-bold p-4 rounded-2xl bg-muted/20 border border-muted/50 hover:bg-brand/10 hover:border-brand/40 transition-all flex items-center justify-between group">
+		<a href="/projects" class="text-xl font-bold p-4 rounded-xl bg-card border border-border hover:bg-accent hover:border-primary/40 transition-all flex items-center justify-between group">
 			Project
-			<span class="text-brand transition-transform group-hover:translate-x-2">→</span>
+			<span class="text-primary transition-transform group-hover:translate-x-1.5">→</span>
 		</a>
 	</div>
-	<div class="mt-auto p-6 rounded-3xl bg-brand/5 border border-brand/10">
-		<p class="text-sm font-medium text-brand mb-1 uppercase tracking-widest">Connect</p>
+	<div class="mt-auto p-6 rounded-2xl bg-muted/60 border border-border">
+		<p class="text-xs font-semibold text-primary mb-1 uppercase tracking-wider">Connect</p>
 		<p class="text-muted-foreground text-sm leading-relaxed">分享每日新知，沉淀知识，持续成长。</p>
 	</div>
 </div>
