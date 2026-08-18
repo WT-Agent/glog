@@ -55,6 +55,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-brand: var(--primary);
+  --color-brand-dark: var(--primary);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -130,42 +132,44 @@
   }
 }
 
-*, ::after, ::before {
-  border-color: var(--border);
-}
+@layer base {
+  *, ::after, ::before {
+    border-color: var(--border);
+  }
 
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  line-height: 1.65;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-main {
-  @apply max-w-3xl mx-auto px-6 py-12;
-}
+  main {
+    @apply max-w-3xl mx-auto px-6 py-12;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-semibold tracking-tight text-balance text-foreground;
-}
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-balance text-foreground;
+  }
 
-a {
-  @apply transition-colors duration-200;
-  text-decoration: none;
-  color: inherit;
-}
+  a {
+    @apply transition-colors duration-200;
+    text-decoration: none;
+    color: inherit;
+  }
 
-/* Accessible focus rings */
-:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
+  /* Accessible focus rings */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
 }
 
 .prose {
@@ -192,16 +196,30 @@ a {
   @apply mb-6 ml-6 list-disc space-y-2;
 }
 
-.prose code {
-  @apply bg-muted text-foreground px-1.5 py-0.5 rounded-md text-sm font-mono border border-border/50;
+.prose :not(pre) > code {
+  @apply bg-muted text-foreground px-1.5 py-0.5 rounded-md text-sm font-mono border border-border/60;
 }
 
-.prose pre {
-  @apply bg-muted/80 text-foreground p-6 rounded-xl overflow-x-auto mb-8 border border-border/60 shadow-xs;
+.prose pre,
+.prose pre.astro-code {
+  @apply p-5 rounded-2xl overflow-x-auto mb-8 border border-border/80 text-sm font-mono shadow-xs;
 }
 
-.prose pre code {
-  @apply bg-transparent p-0 border-none;
+.prose pre code,
+.prose pre.astro-code code {
+  @apply bg-transparent p-0 border-none font-mono text-sm leading-relaxed;
+}
+
+/* Shiki Dual Theme Switch */
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
 }
 
 .prose blockquote {

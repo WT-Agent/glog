@@ -1,21 +1,21 @@
-<div id="cookie-consent" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-2rem)] max-w-md hidden">
-	<div class="glass p-6 rounded-2xl shadow-2xl border border-white/20 flex flex-col gap-4">
-		<div class="flex items-start gap-4">
-			<div class="bg-brand/10 p-2 rounded-xl text-brand">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
+<div id="cookie-consent" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-2rem)] max-w-md hidden">
+	<div class="p-5 rounded-2xl shadow-2xl border border-border bg-card/95 text-card-foreground backdrop-blur-xl flex flex-col gap-4">
+		<div class="flex items-start gap-3.5">
+			<div class="bg-primary/10 p-2.5 rounded-xl text-primary shrink-0">
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
 			</div>
 			<div class="flex-1">
-				<h3 class="font-bold text-lg mb-1">Cookie Consent</h3>
-				<p class="text-sm text-muted-foreground leading-relaxed">
+				<h3 class="font-semibold text-base mb-1 text-foreground">Cookie Consent</h3>
+				<p class="text-xs text-muted-foreground leading-relaxed">
 					We use cookies to enhance your browsing experience and analyze site traffic. By clicking "Accept", you agree to our cookie policy.
 				</p>
 			</div>
 		</div>
-		<div class="flex gap-3 mt-2">
-			<button id="accept-cookies" class="flex-1 bg-brand text-white py-2.5 rounded-xl font-bold hover:opacity-90 transition-all cursor-pointer">
+		<div class="flex gap-2.5 mt-1">
+			<button id="accept-cookies" class="flex-1 bg-primary text-primary-foreground py-2 px-4 rounded-xl font-medium text-xs hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer shadow-xs focus-visible:outline-2 focus-visible:outline-ring">
 				Accept
 			</button>
-			<button id="decline-cookies" class="flex-1 bg-muted text-foreground py-2.5 rounded-xl font-bold hover:opacity-80 transition-all cursor-pointer">
+			<button id="decline-cookies" class="flex-1 bg-muted hover:bg-muted/80 text-foreground border border-border/60 py-2 px-4 rounded-xl font-medium text-xs active:scale-[0.98] transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-ring">
 				Decline
 			</button>
 		</div>

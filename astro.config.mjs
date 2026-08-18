@@ -13,6 +13,15 @@ export default defineConfig({
   site: 'https://glog.geniux.net',
   output: 'server',
   integrations: [mdx(), sitemap()],
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+      wrap: true,
+    },
+  },
   image: {
     domains: ['images.unsplash.com'],
   },

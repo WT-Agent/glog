@@ -2,7 +2,8 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Button from '../components/ui/Button.astro';
+import { SITE_TITLE } from '../consts';
 
 // Ideally, this data would come from a NAS API or a localized JSON file
 const photos = [
@@ -32,44 +33,52 @@ const photos = [
 	<head>
 		<BaseHead title={`Gallery | ${SITE_TITLE}`} description="Visual memories synced from private NAS." />
 	</head>
-	<body class="bg-background text-foreground antialiased selection:bg-brand/30">
+	<body class="bg-background text-foreground antialiased selection:bg-primary/20">
 		<Header />
-		<main class="max-w-7xl mx-auto px-6 py-12 md:py-24 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-			<header class="mb-16 md:mb-24 text-center">
-				<h1 class="text-5xl md:text-8xl font-black tracking-tight mb-8 bg-gradient-to-r from-foreground via-foreground/70 to-foreground bg-clip-text text-transparent">
+		<main class="max-w-6xl mx-auto px-6 py-12 md:py-20 relative">
+			<header class="mb-12 md:mb-16 text-center max-w-2xl mx-auto space-y-3">
+				<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground">
 					Gallery
 				</h1>
-				<p class="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-					A collection of visual moments, automatically synchronized from my private NAS storage. 
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-brand/10 text-brand text-xs font-bold rounded-full ml-2 uppercase tracking-wider">NAS Connected</span>
+				<p class="text-base sm:text-lg text-muted-foreground leading-relaxed">
+					A collection of visual moments, automatically synchronized from my private NAS storage.
 				</p>
+				<div class="pt-1">
+					<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-xs font-semibold rounded-full uppercase tracking-wider">
+						NAS Connected
+					</span>
+				</div>
 			</header>
 
-			<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{photos.map((photo) => (
-					<div class="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-muted shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+					<div class="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-card border border-border shadow-xs hover:border-primary/40 hover:-translate-y-1 transition-all duration-300">
 						<img 
 							src={photo.url} 
 							alt={photo.title}
-							class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+							class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
 							loading="lazy"
 						/>
-						<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-							<p class="text-brand font-mono text-xs mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75 uppercase tracking-widest">{photo.location} • {photo.date}</p>
-							<h3 class="text-2xl font-bold text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">{photo.title}</h3>
+						<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+							<p class="text-primary font-mono text-xs mb-1 uppercase tracking-wider">{photo.location} • {photo.date}</p>
+							<h3 class="text-xl font-bold text-white tracking-tight">{photo.title}</h3>
 						</div>
 					</div>
 				))}
 			</section>
 
-            <footer class="mt-24 text-center">
-                <div class="inline-flex flex-col items-center gap-4 p-8 rounded-3xl bg-muted/30 border border-muted/50 backdrop-blur-xl">
-                    <p class="text-muted-foreground font-medium">Want to see more?</p>
-                    <a href="mailto:nas@geniux.net" class="px-8 py-3 bg-brand text-white font-bold rounded-full hover:bg-brand/90 hover:scale-105 transition-all shadow-lg shadow-brand/20 active:scale-95">
-                        Request Access
-                    </a>
-                </div>
-            </footer>
+			<footer class="mt-16 text-center">
+				<div class="inline-flex flex-col items-center gap-3.5 p-8 rounded-2xl bg-card border border-border text-card-foreground shadow-xs max-w-md w-full">
+					<p class="text-sm text-muted-foreground font-medium">Want to see more private archives?</p>
+					<Button 
+						href="mailto:nas@geniux.net" 
+						variant="primary"
+						size="sm"
+					>
+						Request Access
+					</Button>
+				</div>
+			</footer>
 		</main>
 		<Footer />
 	</body>
