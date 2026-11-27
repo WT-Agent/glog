@@ -1,6 +1,6 @@
 ---
 export const prerender = true;
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import AboutHeroImage from '../assets/about-avatar-banner.jpg';
 import Layout from '../layouts/BlogPost.astro';
 ---
 
@@ -9,7 +9,26 @@ import Layout from '../layouts/BlogPost.astro';
 	description="Revisionist, Industrialist & Factual Obsessive."
 	pubDate={new Date('February 18 2026')}
 	heroImage={AboutHeroImage}
+	heroVariant="avatar"
 >
+	<section class="space-y-4 mb-10">
+		<h2 class="text-2xl font-bold tracking-tight text-foreground">Founder &amp; Projects</h2>
+		<p class="text-muted-foreground text-sm sm:text-base leading-relaxed">
+			Founder of <a href="https://bibleos.ai" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">BibleOS.ai</a>, <a href="https://agentfriendly.network" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">AFN (agentFriendly.network)</a>, and <a href="https://agentuniver.com" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">agentUniver.com</a>.
+		</p>
+		<ul class="space-y-2 text-sm text-muted-foreground">
+			<li>
+				<a href="https://bibleos.ai" target="_blank" rel="noopener noreferrer" class="text-foreground font-semibold hover:text-primary transition-colors">BibleOS.ai</a> — Distributed civilizational evolution protocol and persistent intelligence substrate.
+			</li>
+			<li>
+				<a href="https://agentfriendly.network" target="_blank" rel="noopener noreferrer" class="text-foreground font-semibold hover:text-primary transition-colors">AFN (agentFriendly.network)</a> — Open interaction and interoperability protocol network for autonomous agents.
+			</li>
+			<li>
+				<a href="https://agentuniver.com" target="_blank" rel="noopener noreferrer" class="text-foreground font-semibold hover:text-primary transition-colors">agentUniver.com</a> — Global decentralized autonomous AI Agent marketplace and skill distribution hub.
+			</li>
+		</ul>
+	</section>
+
 	<p>
 		I am a <strong>Centrist Revisionist</strong> (Social-Liberal, certified) who occasionally switches to an anarchist mindset when my core values are challenged. I am a staunch advocate for digital freedom, open-source collaboration, environmental sustainability, and the profound elegance found in <strong>silence and asynchronous workflows</strong>. 
 	</p>
@@ -46,7 +65,7 @@ import Layout from '../layouts/BlogPost.astro';
 		<section class="space-y-4">
 			<h2 class="text-2xl font-bold tracking-tight text-foreground">Identity & Nickname</h2>
 			<div class="flex flex-wrap items-center gap-2.5 font-mono text-sm pt-1">
-				<span class="text-lg font-bold text-foreground">尹鸿文 / 霄枻</span>
+				<span class="text-lg font-bold text-foreground">尹鸿文 / 霄枻 / 尚歌</span>
 				<span class="px-2.5 py-1 rounded-lg bg-card border border-border text-xs text-primary font-semibold">[ 字 · 霂之 ]</span>
 				<span class="px-2.5 py-1 rounded-lg bg-card border border-border text-xs text-primary font-semibold">[ 号 · 霈泽 ]</span>
 				<span class="px-2.5 py-1 rounded-lg bg-card border border-border text-xs text-primary font-semibold">[ ID · Geniux ]</span>
@@ -54,7 +73,7 @@ import Layout from '../layouts/BlogPost.astro';
 		</section>
 
 		<section class="space-y-4">
-			<h2 class="text-2xl font-bold tracking-tight text-foreground">执行主义与工程交付 (Executionism & Engineering Delivery)</h2>
+			<h2 class="text-2xl font-bold tracking-tight text-foreground">Executionism &amp; Engineering Delivery</h2>
 			<blockquote class="p-4 rounded-xl bg-muted/40 border-l-4 border-primary text-foreground font-medium text-base not-italic">
 				“既定目标不能改变：执行、发现问题、修正方法、继续执行。”
 			</blockquote>

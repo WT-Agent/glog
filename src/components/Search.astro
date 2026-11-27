@@ -6,6 +6,8 @@ const searchData = posts.map(post => ({
   id: post.id,
   title: post.data.title,
   description: post.data.description,
+  tags: post.data.tags || [],
+  series: post.data.series || '',
   url: `/blog/${post.id}/`
 }));
 
@@ -94,7 +96,7 @@ const { uid = '' } = Astro.props;
 
       if (!fuse && window.Fuse) {
         fuse = new window.Fuse(searchData, {
-          keys: ['title', 'description'],
+          keys: ['title', 'description', 'tags', 'series'],
           threshold: 0.4
         });
       }
@@ -145,12 +147,19 @@ const { uid = '' } = Astro.props;
         return;
       }
 
-      resultsDir.innerHTML = results.slice(0, 8).map(({ item }) => `
+      resultsDir.innerHTML = results.slice(0, 8).map(({ item }) => {
+        const metaBadges = [
+          item.series ? `<span class="px-1.5 py-0.5 rounded bg-primary/10 text-primary text-[10px] font-mono">${item.series}</span>` : '',
+          ...(item.tags || []).slice(0, 3).map(t => `<span class="px-1.5 py-0.5 rounded bg-muted text-muted-foreground text-[10px] font-mono">#${t}</span>`)
+        ].filter(Boolean).join('');
+        return `
         <a href="${item.url}" class="flex flex-col gap-1 p-3.5 rounded-xl hover:bg-accent transition-all group border border-transparent hover:border-border active:scale-[0.99]">
           <h4 class="font-semibold text-foreground group-hover:text-primary transition-colors text-sm">${item.title}</h4>
           <p class="text-xs text-muted-foreground line-clamp-1">${item.description}</p>
+          ${metaBadges ? `<div class="flex flex-wrap gap-1 mt-1">${metaBadges}</div>` : ''}
         </a>
-      `).join('');
+      `;
+      }).join('');
     });
   });
 </script>
