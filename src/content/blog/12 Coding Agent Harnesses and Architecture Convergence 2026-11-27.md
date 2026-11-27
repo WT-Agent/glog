@@ -1,6 +1,6 @@
 ---
 title: '12 款 Coding Agent Harness 横评：从基座选型、CVE 踩坑到多节点生产级闭环'
-description: '深度梳理 2026 年 Coding Agent Harness 两条开源基座树（OpenCode 系 vs Pi 系）与模型厂牌军，复盘 Hermes、Pi、Cline CLI v3.0.75、OpenClaw、DSH、KimiCode 2.7.2、Oh My Pi (OMP) 与 Command Code 的真实短板及安全公告，并沉淀“PG+NATS+Gitea+N8N+三节点”全自动无头生产闭环与媒资扩展规划。'
+description: '深度梳理 2026 年 Coding Agent Harness 两条开源基座树（OpenCode 系 vs Pi 系）与模型厂牌军，复盘 Hermes、Pi、Cline CLI v3.0.75、OpenClaw、DSH、KimiCode 2.7.2、Oh My Pi (OMP) 与 Command Code 的真实短板及安全公告，并解析 Orca、Herdr、Paseo、T3 Code 四款外层编排与隔离工具在工程场景中的适用边界。'
 pubDate: '2026-11-27 10:32:00'
 heroImage: '../../assets/covers/coding-agent-harness.jpg'
 series: '软件开发工作流中LLM的协同'
@@ -41,16 +41,18 @@ author: '尹鸿文（霈泽）'
 
 ---
 
-## 三、超越“外层壳子”：三节点无头闭环与未来媒资扩展
+## 三、外层编排与控制面板：Orca、Herdr、Paseo、T3 Code 的工程用法
 
-相比于 Orca、Herdr、Paseo、T3 Code 等停留在“人机盯盘或局部 Worktree 管理”的外层工具，真正生产级的多 Agent 底座必须把**状态、编排、执行与审计**物理抽离：
+当底层选定 OpenCode 或 Pi 系 Harness 作为执行器后，面对多任务并发、工作区冲突与状态监听需求，业界还演化出了四款典型的外层编排与运行时工具。它们并非“写代码的 Agent 本体”，而是负责把底层 CLI 拉起来、管并发、隔目录或接管交互的控制面外设：
 
-### 1. 现有三节点闭环数据流
-- **需求与真源**：Gitea 锚定数据与代码唯一真源；人类通过飞书向 **Node-G（主 Hermes + 影子审计 ZeroClaw）** 发布任务，Hermes 拆解为季度 OKR 并经人工审批后写入 PostgreSQL 子任务账本。
-- **鉴权与执行**：通过 NATS 鉴权分发任务，由 **Node-K（KimiCode / OpenCode + ZeroClaw GTM Worker）** 认领并执行，汇报可核验的 Commit/日志证据。
-- **双轨审计与核销**：**Node-E（PI / Cline + ZeroClaw GTM Worker）** 承担 L1+L2 代码与业务审计，N8N 驱动状态机、通知与 Browserless 多平台推稿，经 ZeroClaw 复核后最终核销 PG 与飞书任务，外加 **8 小时容灾备份 + Uptime Kuma 节点监控**。
+| 工具 | 核心定位 | 解决的工程痛点 | 适用场景与边界 |
+| :--- | :--- | :--- | :--- |
+| **Orca** (`stablyai/orca`) | 并行 Agent 编排与多端 Fleet 调度 | 同时拉起多个编码 Bot 并行作业，支持 Desktop、Mobile 远程接入及 `orca worktree create` 脚本驱动 | 适合同时向多个并行分支派单、跨端观察进度或让不同 CLI 对比解题；自身不替代底层 Harness 编辑精度。 |
+| **Herdr** (`herdr.dev`) | 面向 AI Agent 的终端运行时与事件总线 | 替代传统 `tmux` 盲目轮询抓屏，通过本地 Unix Socket API 实时推送 `working / idle / done / blocked` 事件，支持 `--wait / --until` 阻塞等待与跨 SSH 会话管理 | 适合需要在终端会话层做事件驱动协调、精确阻塞等待与多机 Agent 通信的场景；状态识别存在 `unknown` 边界情况，需结合业务流校验。 |
+| **Paseo** (`paseo.sh`) | Git Worktree 工作区隔离 + Daemon/CLI 编排 | 自动为每次任务派生独立目录与分支并执行 `setup / teardown` 与端口隔离；支持 `paseo run --no-wait`、`--output-schema` 结构化输出及父 Agent 派生子 Agent 队列/打断控制（`queue / steer / interrupt`） | 适合多分支并行编码防踩脏、以及父子 Agent 按强 Schema 回收产物；若已通过独立容器隔离状态，则无需再叠套一层 Worktree 守护进程。 |
+| **T3 Code** (`pingdotgg/t3code`) | 外部 Coding Agent 的统一交互控制面板 | 为已登录的 Claude Code、Codex CLI、OpenCode 等提供集中式 GUI 控制层，统一切换会话与审查进度 | 适合人类开发者在屏幕前集中盯盘与交互操控；不适合作为无人值守后台流水线的核心调度引擎。 |
 
-### 2. 面向“视频混剪”与“AI 24H 直播”的底座补齐边界
-当流水线从文本/代码向重媒体演进时，两类链路呈现出截然不同的无头适应性：
-- **无头视频混剪工作流**：由 DeepSeek 生成脚本分镜、GLM 生图与素材打标（标签入 PG）、Qwen 生成短视频片段，最终由 N8N 异步调度本地显卡与 **FFmpeg** 完成拼接、字幕烧录与转码渲染。重点在于补齐自托管对象存储（如 MinIO）与 PG `media_assets` 索引表，避免大体积素材撑爆 Gitea 与 8 小时备份窗口。
-- **有头 AI 24H 直播工作站**：由于各平台“直播伴侣”强依赖图形桌面会话、虚拟摄像头与音频路由，需坚持**“无头生产、有头播放”**解耦原则——文案与 PPT 由无头流水线审批后推送至直播工作站，直播机仅运行“自动翻页读 PPT + OBS 虚拟录像机 + 看门狗防黑屏垫片队列”，确保断流自愈与口播合规拦截。
+### 在不同工程场景下的组合落点
+1. **单机多分支并行开发（人机盯盘）**：使用 **Paseo** 或 **Orca** 自动派生独立 `git worktree`，把 OpenCode / KimiCode 塞进隔离目录并行写代码，最后统一做 Diff 审查；若偏好统一可视化面板管控已装好的多款 CLI，可套一层 **T3 Code**。
+2. **脚本化与跨机器 CLI 编排（替代 tmux 轮询）**：将终端运行时替换为 **Herdr**，外层脚本直接订阅其 Socket 状态事件或使用 `--wait` 阻塞等待子代理完成，彻底告别靠 `sleep` 与正则抓屏猜状态的脆弱写法。
+3. **无头容器化无人值守流水线**：**T3 Code** 等交互面板可直接舍弃；重点复用 **Herdr**（事件驱动等待）与 **Paseo**（Worktree 隔离及 `--output-schema` 校验）的底层机制，配合确定性测试脚本退出码作为硬门禁，才能真正跑通“状态机驱动、生成与审校分离”的高阶工程闭环。
