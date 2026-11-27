@@ -7,6 +7,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 import vercel from '@astrojs/vercel';
+import remarkEntityLinks from './src/plugins/remark-entity-links.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,6 +18,7 @@ export default defineConfig({
   },
   integrations: [mdx(), sitemap()],
   markdown: {
+    remarkPlugins: [remarkEntityLinks],
     shikiConfig: {
       themes: {
         light: 'github-light',
