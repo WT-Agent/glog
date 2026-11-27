@@ -1,7 +1,7 @@
 ---
 title: '博客分析受阻与替代方案：四模型交叉诊断、Cloudflare 边缘拦截与 Astro SEO 修复'
 description: '复盘一次对个人独立站 geniux.net 发起的多模型（Gemini、GPT、Kimi、Qwen）交叉诊断实战：定位 Gemini 无法抓取但其他模型可读的根因（Cloudflare Managed robots.txt 边缘覆盖与 AI Crawl Control），并收敛形成面向 Astro + Cloudflare 架构的三项工程修复与首屏降噪决策。'
-pubDate: '2026-11-27 10:34:00'
+pubDate: '2026-11-22 10:20:00'
 heroImage: '../../assets/covers/blog-audit-seo-cf.jpg'
 series: '嵌入式与边缘网络实战'
 tags: ['SEO', 'Cloudflare', 'Astro', 'robots.txt', 'Sitemap', '架构演进']

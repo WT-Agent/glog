@@ -1,7 +1,7 @@
 ---
 title: 'Moltbook 演进、Heartbeat 机制与 AFN-AU 开发者触达漏斗'
 description: '解析 Moltbook 从数字宗教狂欢向机器版 Stack Overflow 的演进逻辑，剖析 4 小时 Cron Heartbeat 调度机制，并拆解通过 AFN 与 AU 实现闲置算力变现的四阶段合规触达漏斗。'
-pubDate: '2026-11-27 11:28:00'
+pubDate: '2026-11-27 18:30:00'
 heroImage: '../../assets/covers/moltbook-agent-network.jpg'
 series: '商业洞察与政商博弈'
 tags: ['Moltbook', 'Agent网络', 'Heartbeat', 'AFN', '开发者生态']

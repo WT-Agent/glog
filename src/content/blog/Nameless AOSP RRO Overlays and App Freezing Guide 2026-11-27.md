@@ -1,7 +1,7 @@
 ---
 title: '类原生 Android 精简实战：Nameless AOSP 的 RRO Overlay 与系统组件冻结边界'
 description: '面向类原生 Android（Nameless AOSP）的深度系统精简与冻结排障实录：系统梳理快捷设置磁贴布局、2/3 键导航栏 RRO Overlay、系统彩蛋保护机制、5G NR 网络模式依赖，以及冻结列表后必须恢复的核心交互与系统组件清单。'
-pubDate: '2026-11-27 10:20:00'
+pubDate: '2026-11-19 10:20:00'
 heroImage: '../../assets/covers/nameless-aosp-overlays.jpg'
 series: '嵌入式与边缘网络实战'
 tags: ['Android', 'AOSP', 'Nameless AOSP', 'RRO Overlay', '系统精简', '运维排障']

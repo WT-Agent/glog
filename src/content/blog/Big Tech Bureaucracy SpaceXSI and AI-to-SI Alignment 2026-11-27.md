@@ -1,7 +1,7 @@
 ---
 title: '大厂官僚体制解构、SpaceXSI 与 AI 向 SI 的权力对齐'
 description: '从制度经济学视角剖析中美科技巨头的组织激励畸变，对比谷歌 OKR、字节赛马、Meta PSC、亚马逊 URA 与马斯克的物理定律管理，并解析 AI 向 SI 演进背后的政商合规对齐。'
-pubDate: '2026-11-27 11:27:00'
+pubDate: '2026-11-27 10:20:00'
 heroImage: '../../assets/covers/big-tech-bureaucracy-si.jpg'
 series: '科技演进与政商博弈'
 tags: ['组织体制', '制度经济学', 'SpaceXSI', 'SI', '监管对齐']

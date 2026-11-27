@@ -1,7 +1,7 @@
 ---
 title: '海外高性价比 VPS/VDS 架构分工：绿云 EPYC、搬瓦工与 Cloudflare Tunnel 取舍'
 description: '结合实际多节点运维场景，系统梳理搬瓦工 LA CN2 GIA 与绿云（GreenCloudVPS）日本 VPS/VDS 的三层硬件梯度分工、LET 同级厂商（HostHatch/Onidel/Netcup/Hetzner）对比、绿云 Softbank 线路与账号过户/子联系人策略，以及 Cloudflare Tunnel 直连本地办公设备的适用边界。'
-pubDate: '2026-11-27 10:50:00'
+pubDate: '2026-11-22 19:30:00'
 heroImage: '../../assets/covers/vps-vds-cloud-infra.jpg'
 series: '嵌入式与边缘网络实战'
 tags: ['Cloud Infrastructure', 'GreenCloudVPS', 'VDS', 'BandwagonHost', 'Cloudflare Tunnel', '运维架构']

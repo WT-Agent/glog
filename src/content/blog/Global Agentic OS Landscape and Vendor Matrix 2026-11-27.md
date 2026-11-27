@@ -1,7 +1,7 @@
 ---
 title: '2026 全球 Agentic OS (AOS) 版图拆解：内核底座、云端 MicroVM 与准 OS 阵营'
 description: '严格聚焦 Agentic OS（智能体操作系统与运行时底座）层，系统拆解全球四大阵营最新进展：真正重构内核/权限的 Native AOS（阿里 ANOLISA、华为 openEuler、Windows 11 26H2 MXC、荣耀 MagicOS），云原生 MicroVM 底座（AWS Bedrock AgentCore、Meta Muse Secure VM、字节 AgentKit、IBM/Red Hat），以及 OpenAI Dots、Claude Duet、xAI Grok Bot、CorvinOS 与 Hermes Agent v0.23.1 等运行时。'
-pubDate: '2026-11-27 10:58:00'
+pubDate: '2026-11-25 19:30:00'
 heroImage: '../../assets/covers/agentic-os-global.jpg'
 series: '科技演进与算力权力格局'
 tags: ['Agentic OS', 'Windows 11 MXC', 'openEuler', 'ANOLISA', 'Bedrock AgentCore', 'Hermes Agent']
@@ -9,6 +9,9 @@ author: '尹鸿文（霈泽）'
 ---
 
 随着 AI 智能体从单轮对话框演进为长周期自主执行系统，2026 年底科技巨头的争夺焦点已经明确下沉至 **Agentic OS（AOS，智能体操作系统与运行时底座）**。剥除上层聊天界面与通用模型发布，全球围绕“为 Agent 提供隔离沙箱、权限边界、原生技能接口与生命周期管理”的玩家，已分化为**原生内核级 AOS**、**云端微虚拟机底座**与**跨平台覆盖层运行时（Overlay Runtime）**三大层级。
+
+> [!NOTE] 2026 Agent 基础设施关联阅读
+> 本文聚焦操作系统与运行时底座（AOS），同主题延伸拆解见：**[12 款 Coding Agent Harness 横评](/blog/12-coding-agent-harnesses-and-architecture-convergence-2026-11-27/)**、**[Agent 工作台与国内 MaaS 格局](/blog/agent-workbench-vs-distributed-cluster-and-maas-economics-2026-11-27/)**、**[Personal Agent 盘点与变局](/blog/personal-agent-landscape-and-ai-power-dynamics-2026-11-27/)**、**[五大云端个人 Agent 定位剖析](/blog/cloud-personal-agents-and-google-ecosystem-positioning-2026-11-27/)** 与 **[Tweet.app 与 OpenClaw 生态演进](/blog/tweetapp-cold-start-and-openclaw-ecosystem-governance-2026-11-27/)**。
 
 ---
 

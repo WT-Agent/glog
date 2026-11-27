@@ -1,7 +1,7 @@
 ---
 title: '告别传统邮局遗产包袱：多别名邮箱评测与自有域名 Cloudflare / Lark 架构'
 description: '复盘 GMX 静默丢信、Outlook.com 多账号 Cookie/CSRF 串号与三十年单体遗产架构、Yahoo 3GB 容量缩水，横向评测 139.com、完美邮箱（email.cn）、mail.com、Yandex 360、Zoho Mail、Proton Mail、Fastmail 与飞书/Lark 邮箱，并给出“自有域名 + Cloudflare Email Routing / Lark 国际版”的终极多别名收敛方案。'
-pubDate: '2026-11-27 10:57:00'
+pubDate: '2026-11-25 10:20:00'
 heroImage: '../../assets/covers/email-routing-lark.jpg'
 series: '嵌入式与边缘网络实战'
 tags: ['Email', 'Cloudflare Email Routing', 'Lark', 'Proton Mail', 'Fastmail', '基础设施']
