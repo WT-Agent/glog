@@ -83,8 +83,8 @@ const relatedProjects = post ? getRelatedProjectsForPost(post, 3) : [];
 
 					{heroImage && (
 						heroVariant === 'avatar' ? (
-							<div class="w-40 h-40 sm:w-48 sm:h-48 mx-auto rounded-full overflow-hidden border-2 border-border shadow-xs mb-10 shrink-0 bg-muted">
-								<Image width={400} height={400} src={heroImage} alt="" class="w-full h-full object-cover object-top" />
+							<div class="w-[365px] h-[365px] max-w-full aspect-square mx-auto rounded-full overflow-hidden border-2 border-border shadow-xs mb-10 shrink-0 bg-muted">
+								<Image width={365} height={365} src={heroImage} alt="" class="w-full h-full object-cover object-top" />
 							</div>
 						) : (
 							<div class="rounded-2xl overflow-hidden border border-border shadow-xs mb-12 aspect-video shrink-0 bg-muted">
