@@ -12,6 +12,7 @@ import XReplies from '../components/XReplies.astro';
 
 import RelatedPosts from '../components/RelatedPosts.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import { getRelatedProjectsForPost } from '../data/projects';
 
 type Props = { 
 	post: CollectionEntry<'blog'>;
@@ -23,9 +24,12 @@ const { post, headings, ...rest } = Astro.props;
 const data = post ? post.data : rest;
 const { title, description, pubDate, updatedDate, heroImage, tags, author } = data;
 const id = post ? post.id : 'page';
+const hasCjk = /[\u4e00-\u9fff]/.test(`${title || ''} ${description || ''} ${post?.body?.slice(0, 400) || ''}`);
+const htmlLang = hasCjk ? 'zh-CN' : 'en';
+const relatedProjects = post ? getRelatedProjectsForPost(post, 3) : [];
 ---
 
-<html lang="en">
+<html lang={htmlLang}>
 	<head>
 		<BaseHead 
 			title={title} 
@@ -106,6 +110,35 @@ const id = post ? post.id : 'page';
 					</div>
 
 					<PodcastStatus blogPostId={id} showDetails={false} />
+
+					{relatedProjects.length > 0 && (
+						<section class="mt-10 p-5 rounded-2xl bg-card/30 border border-border/60">
+							<div class="flex items-center justify-between mb-3">
+								<span class="text-[10px] font-mono font-semibold uppercase tracking-widest text-muted-foreground">
+									<span class="lang-zh">关联项目</span>
+									<span class="lang-en">Related Projects</span>
+								</span>
+								<a href="/projects" class="text-[11px] font-mono text-primary hover:underline">
+									<span class="lang-zh">全部项目 →</span>
+									<span class="lang-en">All Projects →</span>
+								</a>
+							</div>
+							<div class="flex flex-wrap gap-2">
+								{relatedProjects.map((proj) => (
+									<a
+										href={proj.link || '/projects'}
+										target={proj.link ? '_blank' : undefined}
+										rel={proj.link ? 'noopener noreferrer' : undefined}
+										class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-muted/60 hover:bg-accent border border-border/50 text-xs font-medium text-foreground transition-colors"
+									>
+										<span class="lang-zh">{proj.zhTitle || proj.title}</span>
+										<span class="lang-en">{proj.enTitle || proj.title}</span>
+										{proj.link && <span class="text-muted-foreground text-[10px]">↗</span>}
+									</a>
+								))}
+							</div>
+						</section>
+					)}
 
 					{/* 1.9 Related Content & Series Navigation */}
 					{post && <RelatedPosts post={post} />}
