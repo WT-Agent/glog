@@ -2,13 +2,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function getBlogPosts() {
     const posts = await getCollection('blog');
-
-    // Filter out drafts in production
-    if (import.meta.env.PROD) {
-        return posts.filter(post => !post.data.draft);
-    }
-
-    return posts;
+    return posts.filter(post => !post.data.draft);
 }
 
 export async function getSortedBlogPosts() {
