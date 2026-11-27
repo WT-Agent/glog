@@ -11,7 +11,6 @@ interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata | string;
-	favicon?: string;
 	article?: {
 		pubDate?: Date;
 		updatedDate?: Date;
@@ -22,8 +21,7 @@ interface Props {
 const siteURL = Astro.site ?? new URL('https://geniux.net');
 const canonicalURL = new URL(Astro.url.pathname, siteURL);
 
-const { title, description, image = FallbackImage, favicon = '/favicon.svg', article } = Astro.props;
-const faviconType = favicon.endsWith('.svg') ? 'image/svg+xml' : 'image/png';
+const { title, description, image = FallbackImage, article } = Astro.props;
 const imagePath = typeof image === 'string' ? image : (image?.src || FallbackImage.src);
 const imageURL = new URL(imagePath, siteURL);
 
@@ -84,7 +82,7 @@ if (article) {
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type={faviconType} href={favicon} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
 	rel="alternate"
