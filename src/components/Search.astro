@@ -1,7 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
+import { getBlogPosts } from '../lib/content';
 
-const posts = await getCollection('blog');
+const posts = await getBlogPosts();
 const searchData = posts.map(post => ({
   id: post.id,
   title: post.data.title,
