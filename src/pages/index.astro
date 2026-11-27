@@ -5,7 +5,7 @@ import { getSortedBlogPosts } from '../lib/content';
 import { SITE_TITLE } from '../consts';
 
 const allPosts = await getSortedBlogPosts();
-const recentPosts = allPosts.slice(0, 3);
+const recentPosts = allPosts.slice(0, 5);
 
 const socialLinks = [
 	{ 
@@ -106,18 +106,6 @@ const socialLinks = [
 								<span class="text-muted-foreground font-normal">Observations on political economy, markets, and crypto—views do not constitute investment advice.</span>
 							</p>
 						</div>
-					</div>
-
-					<!-- Quick Jump Buttons in Hero -->
-					<div class="flex flex-wrap justify-center items-center gap-3 pt-1">
-						<a href="/blog" class="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-xs font-semibold hover:opacity-90 active:scale-[0.98] transition-all duration-300 ease-out shadow-xs">
-							<span class="lang-zh">进入博客</span>
-							<span class="lang-en">Read Essays</span>
-						</a>
-						<a href="/projects" class="px-5 py-2.5 rounded-xl bg-muted/80 text-foreground text-xs font-semibold hover:bg-muted border border-border/70 active:scale-[0.98] transition-all duration-300 ease-out shadow-xs">
-							<span class="lang-zh">项目矩阵</span>
-							<span class="lang-en">All Projects</span>
-						</a>
 					</div>
 				</div>
 
