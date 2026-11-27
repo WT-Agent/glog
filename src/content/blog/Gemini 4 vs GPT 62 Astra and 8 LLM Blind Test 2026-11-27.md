@@ -1,7 +1,7 @@
 ---
 title: 'Gemini 4 实测与八大模型盲测：从《屎山挑战赛》、SpaceXSI 重构到算力硬件周期'
 description: '深度复盘 Gemini 4 系列（Neon/Carbon/Hydrogen）与 GPT-6.2 Astra、Claude Fable 5.2 在真实工程与《屎山代码挑战赛》中的表现分化，剖析 SpaceXSI（Grok 4.8）纯 C/C++ 重写引擎逻辑、B300 与存储硬件周期，以及八大主流模型在零约束冷启动架构盲测中的真实梯队。'
-pubDate: '2026-11-27 10:22:00'
+pubDate: '2026-11-19 19:30:00'
 heroImage: '../../assets/covers/gemini4-llm-benchmark.jpg'
 series: '科技演进与算力权力格局'
 tags: ['Gemini 4', 'GPT-6.2', 'Claude', 'Benchmark', 'SpaceXSI', '算力周期', 'Multi-Agent']

@@ -1,7 +1,7 @@
 ---
 title: '12 款 Coding Agent Harness 横评：从基座选型、CVE 踩坑到多节点生产级闭环'
 description: '深度梳理 2026 年 Coding Agent Harness 两条开源基座树（OpenCode 系 vs Pi 系）与模型厂牌军，复盘 Hermes、Pi、Cline CLI v3.0.75、OpenClaw、DSH、KimiCode 2.7.2、Oh My Pi (OMP) 与 Command Code 的真实短板及安全公告，并解析 Orca、Herdr、Paseo、T3 Code 四款外层编排与隔离工具在工程场景中的适用边界。'
-pubDate: '2026-11-27 10:32:00'
+pubDate: '2026-11-21 19:30:00'
 heroImage: '../../assets/covers/coding-agent-harness.jpg'
 series: '软件开发工作流中LLM的协同'
 tags: ['Coding Agent', 'Harness', 'OpenCode', 'Oh My Pi', 'KimiCode', 'Cline', '分布式架构']

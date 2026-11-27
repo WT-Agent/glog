@@ -1,7 +1,7 @@
 ---
 title: '五大云端个人 Agent 与 Google 全家桶定位剖析'
 description: '深度拆解 Gemini APP 从 Chatbox 向“生态围栏内 Task Agent”的过渡定性，横向对比 Gemini Task、Grok Bot、Claude Duet、ChatGPT Dots 与 Meta Muse 在触发模式、沙箱接管和执行底座上的架构分水岭，并厘清 Google 全家桶与 RCS/Chat 的真实交互边界。'
-pubDate: '2026-11-27 10:30:00'
+pubDate: '2026-11-21 10:20:00'
 heroImage: '../../assets/covers/cloud-personal-agents.jpg'
 series: '商业洞察与政商博弈'
 tags: ['Personal Agent', 'Gemini Task', 'Grok Bot', 'Claude Duet', 'ChatGPT Dots', 'Google 全家桶']

@@ -1,7 +1,7 @@
 ---
 title: '独立社交平台 Tweet.app 观察与 OpenClaw 生态演进：从野蛮部署到控制面同质化'
 description: '拆解独立短文本社交平台 Tweet.app 如何通过商标诉讼曝光与 $20/年付费门槛完成冷启动；梳理 2026 年下半年 OpenClaw 从盲目跟风走向安全加固与大厂收编的分化路径，以及 AllClaw、Ekko Studio、Multica、Kestra、Orca、Herdr、Paseo 与 T3 Code 等外层工具的本质规律。'
-pubDate: '2026-11-27 10:59:00'
+pubDate: '2026-11-26 10:20:00'
 heroImage: '../../assets/covers/tweet-app-claw-ecosystem.jpg'
 series: '商业洞察与政商博弈'
 tags: ['Tweet.app', 'OpenClaw', 'AI Agent', 'Control Plane', '冷启动', '软件生态']

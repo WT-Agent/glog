@@ -1,7 +1,7 @@
 ---
 title: 'OpenMausBot、Waku 与 HITL 祛魅：从跨端记忆伪需求到结果契约'
 description: '拆解 OpenMausBot 与 waku-agent 的工程实现，辨析跨 CLI 共享记忆与 16GB 端侧部署的误区，用阿姆达尔定律解构 HITL 技术宗教并确立结果契约与理性决策框架。'
-pubDate: '2026-11-27 11:26:00'
+pubDate: '2026-11-26 20:30:00'
 heroImage: '../../assets/covers/hitl-myth-openmausbot.jpg'
 series: '软件开发工作流中LLM的协同'
 tags: ['OpenMausBot', 'waku-agent', 'HITL', '结果契约', '工程哲学']

@@ -1,7 +1,7 @@
 ---
 title: '单点遥控还是无人黑灯工厂：Agent 工作台、算力经济学与国内 MaaS 格局拆解'
 description: '从 Nami、Orca、Multica、Ekko Studio 与国产单点远控工具（WorkBuddy/Trae/ZCode）谈起，对比“单机遥控器”与“分布式无头三节点集群”的架构代差，拆解 $1000/月 C 端消费税与 $10/月无头 API 池的算力经济学，并剖析国内 MaaS 词元工厂四层金字塔及“反检索拼接”工程解法。'
-pubDate: '2026-11-27 10:26:00'
+pubDate: '2026-11-20 19:30:00'
 heroImage: '../../assets/covers/agent-workbench-maas.jpg'
 series: '软件开发工作流中LLM的协同'
 tags: ['AI Agent', 'Agent Workbench', '分布式架构', '算力经济学', 'MaaS', '多智能体']

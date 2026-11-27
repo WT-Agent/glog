@@ -1,7 +1,7 @@
 ---
 title: '2026 下半年 Personal Agent 盘点与行业变局：从 L3 围墙困境到全生态护城河'
 description: '盘点 2026 年下半年海内外 Personal Agent（Hark、Manus Cue、Hermes、ZeroClaw/IronClaw、小豆、千问 Go 等）产品形态演进，剖析 C 端 L3 跨应用代理遭遇 OS 与超级 App 封堵后的现实退路，以及互联网大厂、终端硬件厂、纯模型厂商与传统垂直软件的生存分化格局。'
-pubDate: '2026-11-27 10:24:00'
+pubDate: '2026-11-20 10:20:00'
 heroImage: '../../assets/covers/personal-agent-landscape.jpg'
 series: '商业洞察与政商博弈'
 tags: ['Personal Agent', 'AI Agent', '商业模式', '生态博弈', 'B2B', '企业软件']

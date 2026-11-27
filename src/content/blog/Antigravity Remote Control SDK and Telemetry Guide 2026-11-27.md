@@ -1,7 +1,7 @@
 ---
 title: 'Antigravity 2.0+ 深度解析：Remote Control、遥测关闭、Python SDK 与 Channel 缺口'
 description: '系统梳理 Google Antigravity 2.0/2.9+ 的最新工程能力：Remote Control 极简 Web PWA 无线遥控配置、Enable Telemetry 隐私退出指南、与 OpenClaw IM Channel 生态的架构差异，以及 google-antigravity Python SDK 开发模式与 11 月更新动态。'
-pubDate: '2026-11-27 10:56:00'
+pubDate: '2026-11-24 19:30:00'
 heroImage: '../../assets/covers/antigravity-sdk-remote.jpg'
 series: '软件开发工作流中LLM的协同'
 tags: ['Antigravity', 'Remote Control', 'Python SDK', 'OpenClaw', 'AI Agent', 'DevOps']

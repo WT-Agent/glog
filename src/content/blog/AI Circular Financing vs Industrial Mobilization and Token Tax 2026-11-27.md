@@ -1,7 +1,7 @@
 ---
 title: 'AI 循环融资与产业动员差异：美式资本闭环、大厂外包逻辑与 Token 税心理'
 description: '对比中美 AI 基建动员机制，拆解华尔街 AI 循环融资（Circular Financing）与 Bain 万亿美元营收缺口，分析传统车企、电信商与苹果外包重模型的商业理性及 Token 税心理。'
-pubDate: '2026-11-27 11:25:00'
+pubDate: '2026-11-26 15:30:00'
 heroImage: '../../assets/covers/ai-circular-financing.jpg'
 series: '商业洞察与政商博弈'
 tags: ['AI融资', 'Circular Financing', '产业动员', 'Unit Economics', 'DeepSeek']
