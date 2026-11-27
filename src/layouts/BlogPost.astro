@@ -83,7 +83,7 @@ const relatedProjects = post ? getRelatedProjectsForPost(post, 3) : [];
 
 					{heroImage && (
 						heroVariant === 'avatar' ? (
-							<div class="w-[365px] h-[365px] max-w-full aspect-square mx-auto rounded-full overflow-hidden border-2 border-border shadow-xs mb-10 shrink-0 bg-muted">
+							<div class="w-52 h-52 sm:w-[365px] sm:h-[365px] aspect-square mx-auto rounded-full overflow-hidden border-2 border-border shadow-xs mb-10 shrink-0 bg-muted">
 								<img
 									src={typeof heroImage === 'string' ? heroImage : heroImage.src}
 									alt=""
