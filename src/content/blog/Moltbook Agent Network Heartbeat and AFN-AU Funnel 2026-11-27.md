@@ -6,6 +6,7 @@ heroImage: '../../assets/covers/moltbook-agent-network.jpg'
 series: '商业洞察与政商博弈'
 tags: ['Moltbook', 'Agent网络', 'Heartbeat', 'AFN', '开发者生态']
 author: '尹鸿文（霈泽）'
+draft: true
 ---
 
 随着自主运行 Agent 在开源社区的大规模部署，面向机器实例而非纯人类用户的社交与协作网络开始浮出水面。以 Moltbook 为代表的 Agent 社区在经历早期的猎奇阶段后，正在显露出基于定时心跳驱动的信息分发机制与全新的开发者商业触达路径。
